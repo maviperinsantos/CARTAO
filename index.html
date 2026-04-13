@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita de Cookies 3D</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #b638e7;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            perspective: 2000px;
+        }
+
+        .circulo-fundo {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background: #f382e0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 0 50px rgba(141, 60, 121, 0.8), 0 0 30px rgba(255,255,255,0.02);
+            cursor: pointer;
+        }
+
+        .container-pilha {
+            position: relative;
+            width: 210px;
+            height: 297px;
+            transform-style: preserve-3d;
+            transform: rotateX(60deg) rotateZ(-20deg);
+            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .folha-a4 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            border-radius: 2px;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 10px 10px 40px rgba(0,0,0,0.6);
+            border: 1px solid #ddd;
+            backface-visibility: hidden;
+        }
+
+        .c1 { z-index: 3; transform: translateZ(0px); }
+        .c2 { z-index: 2; transform: translateZ(-35px); background: #fdfdfd; }
+        .c3 { z-index: 1; transform: translateZ(-70px); background: #f9f9f9; }
+
+        .conteudo-texto {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            pointer-events: none;
+        }
+
+        .circulo-fundo:hover .container-pilha {
+            transform: rotateX(0deg) rotateZ(0deg);
+        }
+
+        .circulo-fundo:hover .c1 { transform: translateX(-250px) translateZ(0); }
+        .circulo-fundo:hover .c2 { transform: translateZ(100px); background: #fff; }
+        .circulo-fundo:hover .c3 { transform: translateX(250px) translateZ(0); }
+
+        .circulo-fundo:hover .conteudo-texto {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        h2 { font-size: 15px; color: #d2691e; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px; text-align: center; }
+        p { font-size: 11px; line-height: 1.6; color: #444; text-align: justify; margin-bottom: 15px; }
+        ul { font-size: 10px; color: #444; padding-left: 15px; }
+        li { margin-bottom: 5px; }
+        .linha-assinatura { width: 100px; height: 1px; background: #ddd; margin: 20px auto 0; }
+
+    </style>
+</head>
+<body>
+
+    <div class="circulo-fundo">
+        <div class="container-pilha">
+            
+            <div class="folha-a4 c1">
+                <div class="conteudo-texto">
+                    <h2>INGREDIENTES</h2>
+                    <ul>
+                        <li>125g de manteiga sem sal (ponto pomada)</li>
+                        <li>3/4 xícara de açúcar mascavo</li>
+                        <li>1/2 xícara de açúcar refinado</li>
+                        <li>1 ovo grande</li>
+                        <li>1 colher de chá de essência de baunilha</li>
+                        <li>1 e 3/4 xícara de farinha de trigo</li>
+                        <li>200g de gotas de chocolate meio amargo</li>
+                    </ul>
+                    <div class="linha-assinatura"></div>
+                </div>
+            </div>
+
+            <div class="folha-a4 c2">
+                <div class="conteudo-texto">
+                    <h2>MODO DE PREPARO</h2>
+                    <p> 1.Bata a manteiga com os dois tipos de açúcar até formar um creme claro.Adicione o ovo e a baunilha,misturando bem.
+                    </p>
+                    <p> 2.Peneire a farinha e o fermento sobre a mistura e incorpore delicadamente.Por último,adicione as gotas de chocolate.
+                    </p>
+                    <p> 3.Forme bolinhas e coloque em uma assadeira untada,deixando espaço entre elas.
+                    </p>
+                    <div class="linha-assinatura"></div>
+                </div>
+            </div>
+
+            <div class="folha-a4 c3">
+                <div class="conteudo-texto">
+                    <h2>DICAS DE OURO</h2>
+                    <p>
+                        <strong>Forno:</strong> Pré-aqueça a 180°C. Asse por 12 a 15 minutos ou até as bordas dourarem.
+                    </p>
+                    <p>
+                        <strong>Consistência:</strong> Os cookies saem do forno macios! Eles endurecem e ficam crocantes por fora enquanto esfriam na grade.
+                    </p>
+                    <p>
+                        <strong>Variação:</strong> Você pode substituir as gotas de chocolate por nozes picadas ou M&Ms para um visual colorido.
+                    </p>
+                    <div class="linha-assinatura"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
